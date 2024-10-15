@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学练习应用</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 左侧导航栏 -->
+    <div id="nav">
+        <button onclick="showSection('settings')">常规练习</button>
+        <button onclick="startPractice('wrong')">错题练习</button>
+        <button onclick="showSection('custom')">自定义练习</button>
+        <button onclick="showMistakeList()">错题清单</button>
+        <button onclick="clearAllWrongQuestions()">清空全部错题</button>
+    </div>
+
+    <!-- 右侧内容区域 -->
+    <div id="content">
+        <!-- 设置区域 -->
+        <div id="settingsContainer">
+            <h2>常规练习设置</h2>
+            <select id="practiceType">
+                <option value="1">进位加法</option>
+                <option value="2">退位减法</option>
+                <option value="3">加减随机</option>
+            </select>
+            <input type="number" id="difficulty" placeholder="每题时间（秒）" min="1" value="5">
+            <input type="number" id="numQuestions" placeholder="题目数量" min="1" value="20">
+            <button onclick="startPractice('regular')">开始练习</button>
+        </div>
+
+        <!-- 自定义练习区域 -->
+        <div id="customQuestionsContainer">
+            <h2>自定义练习</h2>
+            <textarea id="customQuestions" placeholder="每行一题，格式如：13 - 6 ="></textarea>
+            <input type="number" id="customDifficulty" placeholder="每题时间（秒）" min="1" value="5">
+            <button onclick="startPractice('custom')">开始练习</button>
+        </div>
+
+        <!-- 练习区域 -->
+        <div id="practiceContainer" style="display: none;">
+            <div id="timer"></div>
+            <div id="remaining"></div>
+            <div id="progressBar"><div id="progress"></div></div>
+            <div id="practiceArea">
+                <div id="questionInputContainer">
+                    <div id="questionDisplay"></div>
+                    <input type="number" id="answer" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+                <div id="practiceButtons">
+                    <button id="pauseButton" onclick="togglePause()">暂停</button>
+                    <button onclick="restartPractice()">重新开始</button>
+                    <button onclick="exitPractice()">退出</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 结果显示区域 -->
+        <div id="resultContainer"></div>
+
+        <!-- 错题清单区域 -->
+        <div id="mistakeListContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

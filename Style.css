@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+/* 左侧导航栏样式 */
+#nav {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+#nav button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* 右侧内容区域样式 */
+#content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+/* 通用样式 */
+select, input, button, textarea {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 5px;
+}
+#questionDisplay {
+    font-size: 64px;
+    margin: 20px 0;
+}
+#result, #wrongQuestions, #mistakeListDisplay {
+    margin-top: 20px;
+    text-align: left;
+}
+#timer, #remaining {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+#answer {
+    font-size: 64px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    margin-left: 10px;
+}
+#progressBar {
+    height: 20px;
+    width: 100%;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+#progress {
+    height: 100%;
+    background-color: blue;
+    width: 100%;
+}
+#practiceButtons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+#customQuestionsContainer, #settingsContainer, #mistakeListContainer {
+    display: none;
+}
+.mistake-column {
+    width: 23%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1%;
+    text-align: left;
+}
+.mistake-column h3 {
+    text-align: center;
+}
+/* 练习区域布局 */
+#practiceArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 160px);
+}
+#questionInputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 响应式处理 */
+@media (max-width: 600px) {
+    #nav {
+        width: 100%;
+        height: auto;
+    }
+    body {
+        flex-direction: column;
+    }
+}
